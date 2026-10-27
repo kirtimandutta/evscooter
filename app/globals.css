@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: #050505;
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100%;
+  background: #050505;
+  color: #ffffff;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #00ff66;
+  color: #050505;
+}
+
+:focus-visible {
+  outline: 2px solid #00ff66;
+  outline-offset: 3px;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.aura-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.aura-range:focus {
+  outline: none;
+}
+
+.aura-range:focus-visible {
+  outline: none;
+}
+
+.aura-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: transparent;
+}
+
+.aura-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -8px;
+  border: 2px solid #050505;
+  border-radius: 999px;
+  background: #00ff66;
+  box-shadow: 0 0 16px #00ff66;
+  cursor: pointer;
+}
+
+.aura-range::-moz-range-track {
+  height: 2px;
+  background: transparent;
+  border: none;
+}
+
+.aura-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #050505;
+  border-radius: 999px;
+  background: #00ff66;
+  box-shadow: 0 0 16px #00ff66;
+  cursor: pointer;
+}
+
+.streaks {
+  background-image: repeating-linear-gradient(
+    100deg,
+    transparent 0 80px,
+    rgba(0, 255, 102, 0.18) 80px 82px
+  );
+}
+
+@keyframes cell {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.animate-cell {
+  transform-origin: center bottom;
+  animation: cell 1.35s ease-in-out infinite;
+}
+
+@keyframes tick-in {
+  from {
+    transform: translateY(70%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.tick-char {
+  animation: tick-in 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes arc {
+  to {
+    stroke-dashoffset: -140;
+  }
+}
+
+.energy-arc {
+  stroke-dasharray: 7 9;
+  animation: arc 2.6s linear infinite;
+}
+
+@keyframes soft-in {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.soft-in {
+  animation: soft-in 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cell,
+  .tick-char,
+  .energy-arc,
+  .animate-ping,
+  .soft-in {
+    animation: none;
+  }
+}
